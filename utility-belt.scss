@@ -2,29 +2,29 @@
 * @include triangle within a pseudo element and add positioning properties (ie. top, left)
 * $direction: up, down, left, right
 */
-@mixin triangle($direction, $size: 6px, $color: #222){
+@mixin triangle($direction, $size: 8px, $color: #222){
   content: '';
   display: block;
   position: absolute;
   height: 0; width: 0;
   @if ($direction == 'up'){
     border-bottom: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
   }
   @else if ($direction == 'down'){
     border-top: $size solid $color;
-    border-left: 1/2*$size solid transparent;
-    border-right: 1/2*$size solid transparent;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
   }
   @else if ($direction == 'left'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
     border-right: $size solid $color;
   }
   @else if ($direction == 'right'){
-    border-top: 1/2*$size solid transparent;
-    border-bottom: 1/2*$size solid transparent;
+    border-top: $size solid transparent;
+    border-bottom: $size solid transparent;
     border-left: $size solid $color;
   }
 }
@@ -200,8 +200,7 @@ $largeScreen: 1400px;
       content: $content;
       display: block;
       position: absolute;
-      height: 12px; // (makes total height including padding 22px)
-      padding: 6px;
+      padding: 3px 6px;
       font-size: 12px;
       white-space: nowrap;
       color: #fff;
@@ -211,7 +210,7 @@ $largeScreen: 1400px;
     @if ($direction == 'top'){
       &:before {
         @include triangle(down, 6px, #222);
-        top: -6px; margin-top: 0;
+        top: -2px; margin-top: 0;
         left: 47%;
       }
       &:after {
@@ -223,7 +222,7 @@ $largeScreen: 1400px;
       &:before {
         @include triangle(up, 6px, #222);
         top: auto; margin-top: 0;
-        bottom: -6px;
+        bottom: -2px;
         left: 47%;
       }
       &:after {
