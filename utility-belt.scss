@@ -171,7 +171,13 @@ $largeScreen: 1400px;
 }
 
 /*
-* Resize Sprite (if compass CSS3 mixins not included, uncomment the background-size row and comment the @include version
+* Resize Sprite - for resizing only a single image from a sprite
+*
+* params: $map = $<name>-sprites (ex. $icon-sprites)
+*         $sprite = file name w/o file type ending (ex. globe)
+          $percent = number (ex. 50)
+*
+* (if compass CSS3 mixins not included, uncomment the background-size row and comment the @include version)
 */
 @mixin resize-sprite($map, $sprite, $percent) {
   $spritePath:    sprite-path($map);
@@ -180,10 +186,26 @@ $largeScreen: 1400px;
   $width: image-width(sprite-file($map, $sprite));
   $height: image-height(sprite-file($map, $sprite));
   @include background-size(ceil($spriteWidth * ($percent/100)) ceil($spriteHeight * ($percent/100)));
-//  background-size: $spriteWidth * ($percent/100)) $spriteHeight * ($percent/100);
+  //  background-size: $spriteWidth * ($percent/100)) $spriteHeight * ($percent/100);
   width: ceil($width*($percent/100));
   height: ceil($height*($percent/100));
   background-position: 0 floor(nth(sprite-position($map, $sprite), 2)  * ($percent/100) );
+}
+/*
+* Resizes all images in a given sprite
+* mixin courtesy of Wilker Lúcio https://gist.github.com/wilkerlucio/6442309
+* params: $only = if you want to list specific files instead of regenerating every image (ex. globe, checkmark)
+*/
+@mixin resize-sprite-set($map, $percent, $only...) {
+  $name: sprite_map_name($map);
+
+  @each $sprite in sprite_names($map) {
+    @if length($only) == 0 or index($only, $sprite) != false {
+      .#{$name}-#{$sprite} {
+        @include resize-sprite($map, $sprite, $percent);
+      }
+    }
+  }
 }
 
 /*

@@ -17,6 +17,7 @@ What does it contain?
 7. Animation
 8. Alerted
 9. Resize Sprite
+10. Resize Sprite Set (for all images in a sprite)
 10. Tooltips
 
 How to contribute?
