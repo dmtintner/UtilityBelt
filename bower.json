@@ -1,0 +1,28 @@
+{
+  "name": "UtilityBelt",
+  "version": "1.0.0",
+  "homepage": "https://github.com/dmtintner/UtilityBelt",
+  "authors": [
+    "David Tintner <dmtintner@gmail.com>"
+  ],
+  "description": "A lightweight set of mixins and silent classes for starting any project",
+  "main": "utility-belt.scss",
+  "keywords": [
+    "sass",
+    "scss",
+    "starter",
+    "kit",
+    "responsive",
+    "sprites",
+    "css",
+    "shapes"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

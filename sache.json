@@ -1,0 +1,5 @@
+{
+    "name": "Utility Belt",
+    "description": "A lightweight set of mixins and silent classes for starting any project.",
+    "tags": ["tooltips", "sass", "scss", "mixins", "starter kit", "responsive", "sprites", "shapes"]
+}
