@@ -3,7 +3,7 @@ UtilityBelt
 
 UtilityBelt is a set of SCSS mixins and silent classes for starting any new project.
 
-[Read about it on Hacking UI](http://hackingui.com/front-end/10-best-scss-utilities/)
+[Documentation and examples](http://hackingui.com/front-end/10-best-scss-utilities/)
 
 What does it contain?
 -----------
@@ -18,9 +18,22 @@ What does it contain?
 8. Alerted
 9. Resize Sprite
 10. Resize Sprite Set (for all images in a sprite)
-10. Tooltips
+11. Tooltips
+12. Justify
 
-How to contribute?
+Download
 -----------
+[Download]() and add the utility-belt.scss file to your scss directory
 
+Or install with Bower
+-----------
+`bower install UtilityBelt`
+
+Credits:
+-----------
+Brought to you by @hackingui
+
+
+Want to contribute?
+-----------
 This is just the beginning. There are a ton of great utilities out there, feel free to fork and create pull requests.

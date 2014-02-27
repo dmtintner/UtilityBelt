@@ -1,11 +1,13 @@
 /*
 * UtilityBelt - a starter kit for any SASS project
 * By @dmtintner & @hackingui
-* Documentation and examples @ hackingui.com/front-end/10-best-scss-utilities/
+* Documentation and examples - hackingui.com/front-end/10-best-scss-utilities/
+* V1.1.0
 */
 
 
 /*
+## Triangle
 * @include triangle within a pseudo element and add positioning properties (ie. top, left)
 * $direction: up, down, left, right
 */
@@ -92,13 +94,16 @@ $largeScreen: 1400px;
 /*
 * Ghost Vertical Align
 */
-@mixin ghostVerticalAlign(){
-  &:before {
+@mixin ghostVerticalAlign($pseudoEl: before){
+  &:#{$pseudoEl} {
     content: '';
     display: inline-block;
     vertical-align: middle;
     height: 100%; width: .1px;
   }
+}
+%vertical-align {
+  @include ghostVerticalAlign();
 }
 
 /*
@@ -259,5 +264,20 @@ $largeScreen: 1400px;
         left: 47%; margin-left: -20px;
       }
     }
+  }
+}
+
+
+/*
+## Text-align justify
+For perfectly aligned grids that don't rely on floating elements and difficult calculations
+
+- http://www.barrelny.com/blog/text-align-justify-and-rwd/ */
+%justify {
+  text-align: justify;
+  &:after { // adds a false last line to the content so justify is applied
+    content: '';
+    display: inline-block;
+    width: 100%;
   }
 }
