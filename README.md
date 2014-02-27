@@ -23,7 +23,7 @@ What does it contain?
 
 Download
 -----------
-[Download]() and add the utility-belt.scss file to your scss directory
+[Download](http://hackingui.com/front-end/10-best-scss-utilities/) and add the utility-belt.scss file to your scss directory
 
 Or install with Bower
 -----------
@@ -31,7 +31,7 @@ Or install with Bower
 
 Credits:
 -----------
-Brought to you by @hackingui
+Brought to you by [@hackingui](http://twitter.com/hackingui)
 
 
 Want to contribute?
