@@ -7,34 +7,53 @@
 
 
 /*
-## Triangle
-* @include triangle within a pseudo element and add positioning properties (ie. top, left)
-* $direction: up, down, left, right
+* Triangle
+* Just @include triangle() among the other element's properties
+* $direction: top, bottom, left orright
+* $middle lets you center the triangle on the side. It can be set to on or off
+* $box-padding is naturally the space between the borders and the content
+* $color will match the triangle's color with the background color
+* Please note that for adding a margin on the triangle's side, you'll need to add the triangle's size to the margin's value you want
 */
-@mixin triangle($direction, $size: 8px, $color: #222){
-  content: '';
-  display: block;
-  position: absolute;
-  height: 0; width: 0;
-  @if ($direction == 'up'){
-    border-bottom: $size solid $color;
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
-  }
-  @else if ($direction == 'down'){
-    border-top: $size solid $color;
-    border-left: $size solid transparent;
-    border-right: $size solid transparent;
-  }
-  @else if ($direction == 'left'){
-    border-top: $size solid transparent;
-    border-bottom: $size solid transparent;
-    border-right: $size solid $color;
-  }
-  @else if ($direction == 'right'){
-    border-top: $size solid transparent;
-    border-bottom: $size solid transparent;
-    border-left: $size solid $color;
+@mixin triangle($direction, $size: 8px, $color: #222, $middle, $box-padding) {
+  position: relative;
+  margin-#{$direction}: $size;
+  padding: $box-padding;
+  background-color: $color;
+    
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    #{$direction}: -$size;
+    width: 0;
+    height: 0;
+        
+    @if ($direction == 'top' or $direction == 'bottom') {
+      @if ($middle == 'on') {
+        left: -webkit-calc(50% - #{$size});
+        left: -moz-calc(50% - #{$size});
+        left: -ms-calc(50% - #{$size});
+        left: -o-calc(50% - #{$size});
+      }
+        border-right: $size solid transparent;
+        border-left: $size solid transparent;
+        border-bottom: if($direction == 'top', $size solid $color, '');
+        border-top: if($direction == 'bottom', $size solid $color, '');
+    }
+    
+    @else if ($direction == 'left' or $direction == 'right') {
+      @if ($middle == 'on') {
+        top: -webkit-calc(50% - #{$size});
+        top: -moz-calc(50% - #{$size});
+        top: -ms-calc(50% - #{$size});
+        top: -o-calc(50% - #{$size});
+      }
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;
+      border-right: if($direction == 'left', $size solid $color, '');
+      border-left: if($direction == 'right', $size solid $color, '');
+    }
   }
 }
 
