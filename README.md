@@ -14,12 +14,11 @@ What does it contain?
 4. RespondTo
 5. Ghost Vertical Align
 6. Truncate Text
-7. Animation
-8. Alerted
-9. Resize Sprite
-10. Resize Sprite Set (for all images in a sprite)
-11. Tooltips
-12. Justify
+7. Alerted
+8. Resize Sprite
+9. Resize Sprite Set (for all images in a sprite)
+10. Justify
+11. Placeholder Color
 
 Download
 -----------
