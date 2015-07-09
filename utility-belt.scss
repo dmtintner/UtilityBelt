@@ -2,7 +2,7 @@
 * UtilityBelt - a starter kit for any SASS project
 * By @dmtintner & @hackingui
 * Documentation and examples - hackingui.com/front-end/10-best-scss-utilities/
-* V1.1.0
+* V1.2.0
 */
 
 /*
@@ -148,42 +148,6 @@ overflowing text is replaced by "..."
     text-overflow: $overflow; // values are: clip, ellipsis, or a string
 }
 
-/*
-* Animation
-*/
-@mixin animation($name, $duration: 1000ms, $iterations: infinite, $timing-function: ease, $delay: 0ms) {
-    // There is a FF bug that requires all time values to have units, even 0 !!!!!!
-    -webkit-animation: $name $duration $iterations $timing-function $delay;
-    -moz-animation: $name $duration $iterations $timing-function $delay;
-    -o-animation: $name $duration $iterations $timing-function $delay;
-    animation: $name $duration $iterations $timing-function $delay;
-}
-
-/*
-* Alerted
-*/
-@-webkit-keyframes alertMe {
-    from {
-        border-width: 3px;
-        border-color: gold;
-    }
-    to {
-        border-width: 0;
-        border-color: rgba(gold, .1);
-    }
-}
-
-@-moz-keyframes alertMe {
-    from {
-        border-width: 3px;
-        border-color: gold;
-    }
-    to {
-        border-width: 0;
-        border-color: rgba(gold, .1);
-    }
-}
-
 @keyframes alertMe {
     from {
         border-width: 3px;
@@ -218,7 +182,7 @@ overflowing text is replaced by "..."
         border: solid gold;
         border-width: 2px; // animates
         box-sizing: border-box;
-        @include animation($name: alertMe);
+        animation: alertMe 1000ms infinite ease 0ms;
     }
 }
 
