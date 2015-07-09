@@ -17,9 +17,8 @@ What does it contain?
 7. Alerted
 8. Resize Sprite
 9. Resize Sprite Set (for all images in a sprite)
-10. Tooltips
-11. Justify
-12. Placeholder Color
+10. Justify
+11. Placeholder Color
 
 Download
 -----------
