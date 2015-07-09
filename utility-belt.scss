@@ -5,7 +5,6 @@
 * V1.1.0
 */
 
-
 /*
 ## Triangle
 * @include triangle within a pseudo element and add positioning properties (ie. top, left)
@@ -138,25 +137,10 @@ $mediumDesktop: 1200px;
     @include ghostVerticalAlign();
 }
 
-%flip-vertical {
-    -moz-transform: scaleY(-1);
-    -webkit-transform: scaleY(-1);
-    -o-transform: scaleY(-1);
-    transform: scaleY(-1);
-    -ms-filter: flipv; /*IE*/
-    filter: flipv;
-}
-
-@mixin no-select {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
 /*
 * Truncate Text
+the mixin is used for shortening long captions
+overflowing text is replaced by "..."
 */
 @mixin truncateText($overflow: ellipsis) {
     overflow: hidden;
@@ -241,7 +225,8 @@ $mediumDesktop: 1200px;
 /*
 * Resize Sprite - for resizing only a single image from a sprite
 *
-* params: $sprite = file name w/o file type ending (ex. globe)
+* params: $map = $<name>-sprites (ex. $icon-sprites)
+*         $sprite = file name w/o file type ending (ex. globe)
           $percent = number (ex. 50)
 *
 * (if compass CSS3 mixins not included, uncomment the background-size row and comment the @include version)
@@ -271,58 +256,6 @@ $mediumDesktop: 1200px;
 
     }
 }
-
-/*
-* HUI Tooltips
-*/
-@mixin hui_tooltip($content: attr(data-tooltip), $direction: top) {
-    position: relative;
-    &:before, &:after {
-        display: none;
-        z-index: 98;
-    }
-    &:hover {
-        &:after {
-            // for text bubble
-            content: $content;
-            display: block;
-            position: absolute;
-            padding: 3px 6px;
-            font-size: 12px;
-            white-space: nowrap;
-            color: #fff;
-            text-shadow: 1px 1px #000;
-            background-color: #222;
-        }
-        @if ($direction == 'top') {
-            &:before {
-                @include triangle(down, 6px, #222);
-                top: -2px;
-                margin-top: 0;
-                left: 47%;
-            }
-            &:after {
-                top: -28px;
-                left: 47%;
-                margin-left: -20px;
-            }
-        } @else if ($direction == 'bottom') {
-            &:before {
-                @include triangle(up, 6px, #222);
-                top: auto;
-                margin-top: 0;
-                bottom: -2px;
-                left: 47%;
-            }
-            &:after {
-                bottom: -28px;
-                left: 47%;
-                margin-left: -20px;
-            }
-        }
-    }
-}
-
 /*
 ## Text-align justify
 For perfectly aligned grids that don't rely on floating elements and difficult calculations
@@ -358,25 +291,6 @@ For perfectly aligned grids that don't rely on floating elements and difficult c
     &:-ms-input-placeholder {
         color: $color;
     }
-}
-
-/*
-* apply text overflow ellipses for a single line
-*/
-%overflowEllipses {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-/* CSS rule to disable text selection highlighting */
-%noSelect {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 }
 
 %customScrollBar {
